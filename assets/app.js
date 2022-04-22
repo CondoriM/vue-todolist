@@ -9,9 +9,13 @@ const app = new Vue({
 
     methods:{
         addTask(){
-            console.log('add task');
+            if(this.newTask === ''){
+                console.log('inserisci qualcosa');
+            }else{
+                console.log('add task');
             this.tasks.unshift(this.newTask)
             this.newTask = '';
+            }
         }
     }
 })
