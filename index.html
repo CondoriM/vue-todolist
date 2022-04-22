@@ -18,8 +18,14 @@
             <button @click="addTask">Submit</button>
 
             <div class="list_items">
+                <span>Done: {{done}} <i class="fa-regular fa-circle-check"></i></span>
+                <span>To do: {{notDone}} <i class="fa-solid fa-exclamation"></i></span>
+                <span>Clean up <i class="fa-solid fa-trash" @click="cleanNumber"></i></span>
                 <ul>
-                    <li v-for="(item,index) in tasks">{{item}} <i class="fa-solid fa-circle-xmark" @click="removeTask(index)"></i></li>
+                    <li v-for="(item,index) in tasks">{{item}} 
+                        <i class="fa-solid fa-circle-xmark" @click="removeTask(index)"></i>
+                        <i class="fa-regular fa-circle-check" @click="completedTask(index)"></i>
+                    </li>
                 </ul>
             </div>
         </div>
