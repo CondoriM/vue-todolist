@@ -12,22 +12,30 @@
     <div id="app">
 
         <div class="container">
-            <h1>todo list</h1>
+            <div class="card">
+                <h1>todo list</h1>
 
-            <input type="text" placeholder="inserisci testo" v-model="newTask">
-            <button @click="addTask">Submit</button>
+                <input type="text" placeholder="inserisci testo" v-model="newTask" v-on:keyup.enter="addTask">
+                <button @click="addTask">Submit</button>
 
-            <div class="list_items">
-                <span>Done: {{done}} <i class="fa-regular fa-circle-check"></i></span>
-                <span>To do: {{notDone}} <i class="fa-solid fa-exclamation"></i></span>
-                <span>Clean up <i class="fa-solid fa-trash" @click="cleanNumber"></i></span>
-                <ul>
-                    <li v-for="(item,index) in tasks">{{item}} 
-                        <i class="fa-solid fa-circle-xmark" @click="removeTask(index)"></i>
-                        <i class="fa-regular fa-circle-check" @click="completedTask(index)"></i>
-                    </li>
-                </ul>
+                <div class="list_items">
+                    <div class="actions">
+                        <span>Done: {{done}} <i class="fa-regular fa-circle-check"></i></span>
+                        <span>To do: {{notDone}} <i class="fa-solid fa-exclamation"></i></span>
+                        <span>Clean up <i class="fa-solid fa-trash" @click="cleanNumber"></i></span>
+                    </div>
+                
+                    <ul>
+                        <li @click="activeClass = index" v-for="(item,index) in tasks">{{item}} 
+                            <span id="action_icons">
+                                <i class="fa-solid fa-circle-xmark" @click="removeTask(index)"></i>
+                                <i class="fa-regular fa-circle-check" @click="completedTask(index)"></i>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
             </div>
+            
         </div>
 
     </div>

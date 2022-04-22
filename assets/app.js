@@ -3,6 +3,7 @@ const app = new Vue({
 
 
     data:{
+        activeClass: '',
         done:'0',
         notDone:'0',
         newTask:'',
@@ -30,12 +31,13 @@ const app = new Vue({
         completedTask(i){
             this.tasks.splice(i,1)
             console.log(this.tasks);
+            activeClass = true;
             this.done++
         },
 
         cleanNumber(){
             this.done = 0;
             this.notDone = 0;
-        }
-    }
+        },
+    },
 })
