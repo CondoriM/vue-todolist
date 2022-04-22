@@ -15,7 +15,12 @@ const app = new Vue({
                 console.log('add task');
             this.tasks.unshift(this.newTask)
             this.newTask = '';
+            console.log(this.tasks);
             }
+        },
+
+        removeTask(i){
+            this.tasks.splice(i,1)
         }
     }
 })
